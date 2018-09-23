@@ -13,7 +13,7 @@ Please report any issues or send PR.
 ---
 
 - name: Example of how to add a couple licenses
-  hosts: switches
+  hosts: vcenter
     vars:
       vcenter_auth:
         hostname: 192.0.2.1
