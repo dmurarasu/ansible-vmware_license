@@ -1,0 +1,17 @@
+---
+
+- name: Install vmware license
+  vcenter_license:
+    hostname: "{{ vcenter_auth.hostname | default(omit) }}"
+    username: "{{ vcenter_auth.username | default(omit) }}"
+    password: "{{ vcenter_auth.password | default(omit) }}"
+    license: "{{ item.license }}"
+    state: "{{ item.state | default(omit) }}"
+    port: "{{ vcenter_auth.port | default(omit) }}"
+    validate_certs: "{{ vcenter_auth.validate_certs | default(omit) }}"
+    labels: "{{ item.labels | default(omit) }}"
+  loop: "{{ vmware_license }}"
+  when: >
+    vmware_license is defined
+  tags:
+    - vmware_license
